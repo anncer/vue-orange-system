@@ -1,0 +1,330 @@
+.cur {
+  cursor: pointer;
+}
+.blue {
+  color: #409eff;
+}
+.box {
+  padding: 20px 0;
+}
+
+.red {
+  color: #f9a7a7;
+}
+.tr {
+  text-align: right;
+}
+.tc {
+  text-align: center;
+}
+.tl {
+  text-align: left;
+}
+
+.el-dialog__footer,
+.tc {
+  text-align: center !important;
+}
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+.mr6 {
+  margin: 0 6px;
+}
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+.mb-5 {
+  margin-bottom: 5px;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.ml-0 {
+  margin-left: 0px;
+}
+.ml-5 {
+  margin-left: 5px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mr-0 {
+  margin-right: 0px;
+}
+.mr-5 {
+  margin-right: 5px;
+}
+.mr-10 {
+  margin-right: 10px;
+}
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+.mt-5 {
+  margin-top: 5px;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(
+    90deg,
+    rgba(32, 182, 249, 1) 0%,
+    rgba(32, 182, 249, 1) 0%,
+    rgba(33, 120, 241, 1) 100%,
+    rgba(33, 120, 241, 1) 100%
+  );
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+.bi-success,
+.bi-error,
+.bi-warning,
+.bi-info {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+// .bi-success {
+//   background-image: url("../assets/svg/yes_solid.svg");
+// }
+
+// .bi-error {
+//   background-image: url("../assets/svg/error_solid.svg");
+// }
+
+// .bi-warning {
+//   background-image: url("../assets/svg/warn_solid.svg");
+// }
+
+// .bi-info {
+//   background-image: url("../assets/svg/hint_solid.svg");
+// }
+
+.no-padding {
+  padding: 0;
+}
+
+.content-padd {
+  padding-top: $commonPadding;
+}
+
+.link {
+  color: $blue;
+  cursor: pointer;
+}
+
+.bi-params {
+  background: #fff;
+  // padding-top: 24px;
+  .el-form-item {
+    padding: 0 24px;
+  }
+}
+.bi-params-line {
+  .el-form-item {
+    .el-form-item__label {
+      height: 40px;
+      // line-height: 40px;
+      float: left;
+    }
+    .el-form-item__content {
+      float: left;
+    }
+    .el-input__inner {
+      width: 200px;
+    }
+  }
+}
+.bi-params-dialog {
+  .el-form-item {
+    .el-form-item__label {
+      height: 40px;
+      // line-height: 40px;
+    }
+  }
+  .el-select {
+    width: 100%;
+  }
+}
+//搜索栏
+.bi-params-btns {
+  text-align: center;
+  padding-top: 10px;
+  .bi-params-cancle {
+    margin-right: 20px;
+  }
+  .el-form-item {
+    margin-bottom: 0 !important;
+  }
+}
+
+// 表格
+.table-btn {
+  color: $blue;
+  cursor: pointer;
+  margin-right: 10px;
+  &:hover {
+    color: $blue;
+  }
+}
+.table-box {
+  background: #fff;
+  padding: 0 $commonPadding;
+  margin-top: $commonPadding;
+}
+.btn-ctrl {
+  text-align: right;
+  margin: 12px 0;
+}
+.syspagePosition {
+  text-align: right;
+  margin: 15px 0;
+}
+.btn-box {
+  margin-top: $commonPadding;
+  text-align: center;
+
+  .el-button {
+    margin-right: 8px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+// 类表格div
+.bi-simulate-table {
+  width: 100%;
+  display: table;
+  .bi-simulate-row,
+  .bi-simulate-head {
+    width: 100%;
+    display: table-row;
+    .bi-simulate-cell {
+      display: table-cell;
+      padding: 4px 2px;
+      .el-input__inner {
+        height: 30px;
+        line-height: 30px;
+        width: 80%;
+        margin-left: 10%;
+      }
+    }
+  }
+  .bi-simulate-head {
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.title-name {
+  line-height: 32px;
+}

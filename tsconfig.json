@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "module": "esnext",
+    "target": "es2015",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "strict": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declarationDir": "types",
+    "paths": {
+      "@/*": ["src/*"],
+      "~/*": ["./*"]
+    },
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["unplugin-vue-define-options", "node"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
+}

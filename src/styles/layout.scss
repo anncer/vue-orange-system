@@ -1,0 +1,126 @@
+@import '@/styles/mixin.scss';
+@import '@/styles/variables.scss';
+
+.menu-wrapper{
+  height: calc(100% - 18px);
+  width: 100%;
+  padding-top: 18px;
+  position: relative;
+}
+.menu-content{
+  margin-top: 20px;
+}
+.menu-aside{
+  transition: width 0.28s;
+  width: $sideBarWidth;
+  background: $asideBg;
+  height: 100%;
+  position: fixed;
+  font-size: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  overflow: hidden;
+  .menu-wrapper{
+    height: calc(100% - 18px);
+    width: 100%;
+    padding-top: 18px;
+    position: relative;
+    .menu-opts{
+      color: #666666;
+      position: fixed;
+      // right: 0;
+      width: 16px;
+      height: 16px;
+      left: 200px;
+      top: 50%;
+      z-index: 1002;
+      cursor: pointer;
+      font-size: 20px;;
+    }
+    .el-scrollbar{
+      height: 100%;
+    }
+  }
+  &.min-menu{
+    width: $miniBarWidth;
+    overflow: hidden;
+    .menu-item-text{
+      display: none;
+    }
+    .menu-opts{
+      left: 64px;
+    }
+  }
+}
+
+.wrap-container{
+  height: 100vh;
+  margin-left: $sideBarWidth;
+  padding: $commonPadding;
+  background: #f2f3f9;
+}
+
+.app-main {
+  width: 100%;
+  // min-height: calc(100vh - #{$headerHeight});
+  height: 100%;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+// fix css style bug in open el-dialog
+.el-popup-parent--hidden {
+  .fixed-header {
+    padding-right: 15px;
+  }
+}
+.aside-logo{
+  width: calc(#{$sideBarWidth} / 4);
+  margin-left: calc(#{$sideBarWidth} / 3);
+  margin-top: 10px;
+  img{
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.el-menu .el-menu-item:focus .menu-item-text {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.menu-box,
+.el-menu-item,
+.el-sub-menu,
+.el-submenu__title,
+.el-sub-menu__title,
+.el-sub-menu__icon-arrow,
+.el-menu .el-menu-item:focus .menu-item-text
+ {
+  color: $asideFontColor;
+}
+
+
+.menu-box,
+.el-menu-item,
+.el-submenu .el-menu {
+  background: $asideBg;
+}
+.el-menu-item.is-active,
+.el-submenu__title,
+.el-sub-menu__title,
+.el-sub-menu__icon-arrow,
+.el-submenu__title:hover,
+.el-menu-item:focus {
+  background: $asideBg !important;
+  color: $asideFontColor !important;
+}
+.el-submenu__title,
+.el-sub-menu__title,
+.el-sub-menu__icon-arrow,
+.el-menu .el-menu-item:hover {
+  background: $asideBg !important;
+  color: $asideFontColor !important;
+}

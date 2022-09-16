@@ -1,0 +1,41 @@
+$max-width: 1600px;
+$min-width: 1000px;
+
+$blue: #2f84ef;
+$blueHover: #3a8df5;
+$success: #5dca3c;
+$success-light: #e1f8dc;
+$warning: #fa9908;
+$warning-light: #fcf2e1;
+$danger: #fa4e45;
+$danger-btn: #fa6156;
+$danger-light: #fcebe9;
+$white: #ffffff;
+$scrollbar-color: #d9d9d9;
+$asideBg: #343542;
+$asideFontColor: #fff;
+
+$contextFontSize: 12px;   //正文字体大小
+$contextColor: #172b4c;    //正文字体颜色
+$contextFontStyle: PingFangSC-Medium, PingFang SC;   //正文字体样式
+$btnDefault: #ccc;      //按钮默认背景颜色
+$btnColor: #ccc;        //按钮默认字体颜色
+$btnFontStyle: $contextFontStyle; //按钮默认字体
+// 按钮默认大小，圆角等属性
+// 特别提示的字体属性
+// 列表的字体颜色大小
+// 列表按钮使用小号按钮
+
+
+$colorGray1: #333333; //主要文案:标题,正文等文案颜色
+$colorGray2: #666666; //次要文案:导航,通用icon文案
+$colorGray3: #999999; //辅助文案,提示文案
+$colorGray4: #cccccc; //组件边框 组件内提示文案 禁用态文案
+$colorGray5: #e8e8e8; //分割线文案
+$colorGray6: #f5f5f5; //禁用态背景色,table行hover底色
+$colorGray7: #fafafa; //表头底色
+$colorGray8: #eef5ff; //标签背景色  辅助按钮背景
+
+$commonPadding: 20px;
+$sideBarWidth: 200px;
+$miniBarWidth: 60px;
