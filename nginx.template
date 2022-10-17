@@ -41,9 +41,6 @@ http {
         }
 
 
-      location /dmpp/ {
-        proxy_pass http://$DMPP/;
-      }
       location /api {
         proxy_pass http://$APIIP/api;
       }

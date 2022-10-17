@@ -16,14 +16,14 @@ class LocalCache {
   }
 
   get(key: string, type: CacheTe = CacheTe.cookie) {
-    let value: string | undefined;
+    let value: any;
     if (type === CacheTe.cookie) {
       value = Cookies.get(key);
     } else {
       value = window[type].getItem(key) || "";
     }
     if (value) {
-      return JSON.parse(value);
+      return value;
     }
     return null;
   }

@@ -3,9 +3,9 @@ const TIME_OUT = 1000;
 if (process.env.NODE_ENV === "development") {
   BASE_URL = "";
 } else if (process.env.NODE_ENV === "production") {
-  BASE_URL = "123.207.32.32:8080";
+  BASE_URL = "http://10.28.89.17:9203";
 } else {
-  BASE_URL = "";
+  BASE_URL = "http://10.28.89.17:9203";
 }
 
 export { BASE_URL, TIME_OUT };

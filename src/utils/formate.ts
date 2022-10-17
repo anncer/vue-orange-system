@@ -214,7 +214,25 @@ export const toPoint = (arr: any[], coin = ",", type = false) => {
   }
   return str;
 };
-
+const deepSetObj = (obj:any, arr:any) => {
+  for (const it in obj) {
+    if (isObject(obj[it])) {
+      deepSetObj(obj[it], arr);
+    } else {
+      arr.push(it + "=" + obj[it]);
+    }
+  }
+};
+// 循环对象，并吧有值的键值对写在地址的后边
+export const jointUrl = (baseUrl:any, obj:any) => {
+  if (obj) {
+    const arr:any = [];
+    deepSetObj(obj, arr);
+    return isRealArray(arr) ? baseUrl + "?" + toPoint(arr, "&") : baseUrl;
+  } else {
+    return baseUrl;
+  }
+};
 // 循环对象，并吧有值的键值对写在地址的后边
 export const jointUrl2 = (baseUrl: string, obj: any) => {
   if (obj) {

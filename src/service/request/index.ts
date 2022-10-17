@@ -29,6 +29,7 @@ class GlobalRequest {
             fullscreen: true
           });
         }
+
         return config;
       },
       (error) => {
@@ -58,7 +59,7 @@ class GlobalRequest {
         if (error.response.status === 404) {
           console.log(404);
         }
-        return error;
+        return Promise.reject(error);
       }
     );
 
