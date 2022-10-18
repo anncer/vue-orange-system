@@ -27,26 +27,17 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script lang="ts" setup>
+import { ref } from "vue";
 import siderMenuItem from "@/layout/components/siderMenuItem.vue";
 import data from "./data";
 import logo from "@/assets/images/logo-load.svg";
-export default defineComponent({
-  name: "SiderMenu",
-  components: {
-    siderMenuItem
-  },
-  setup() {
-    const userMenus = data;
-    const collapsed = ref(false)
-    // console.log(userMenus, "userMenus");
-    return {
-      userMenus,
-      collapsed,
-      logo,
-      defaultActive: ""
-    };
-  }
-});
+
+defineOptions({
+  name: 'SiderMenu',
+})
+
+const collapsed = ref(false)
+const userMenus = data;
+
 </script>

@@ -7,21 +7,17 @@
   </transition>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent } from "vue";
 import AppMain from "@/layout/components/appMain.vue";
 import siderMenu from "./components/siderMenu.vue";
 import settings from '../../config'
-export default defineComponent({
-  name: "Layout",
-  components: {
-    AppMain,
-    siderMenu
-  },
-  setup() {
-    const { isLeftbar } = settings
-    const isBar = process.env.NODE_ENV === "development" ? true :  isLeftbar
-    return { isBar };
-  }
-});
+
+defineOptions({
+  name: 'Layout',
+})
+
+const { isLeftbar } = settings
+const isBar = process.env.NODE_ENV === "development" ? true :  isLeftbar
+
 </script>

@@ -47,8 +47,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, ref, onMounted } from "vue";
+<script lang="ts" setup>
+import { reactive, ref, onMounted } from "vue";
 import { ILoginForm, IErrorMsg } from "../type.d";
 import {
   checkPwdVal,
@@ -61,155 +61,137 @@ import encrypt from "@/utils/encrypt";
 import { useStore } from "vuex";
 import { getVerifyCode } from "@/api/login/login";
 
-export default defineComponent({
-  name: "LoginPanel",
-  setup() {
-    const store = useStore();
+  defineOptions({
+    name: 'LoginPanel',
+  })
 
-    const loginForm = reactive<ILoginForm>({
-      username: "",
-      password: ""
-    });
+  const store = useStore();
 
-    const errorMsg = reactive<IErrorMsg>({
-      userErr: "",
-      pwdErr: ""
-    });
+  const loginForm = reactive<ILoginForm>({
+    username: "",
+    password: ""
+  });
 
-    const isUserFocus = ref<boolean>(false);
-    const isPwdFocus = ref<boolean>(false);
+  const errorMsg = reactive<IErrorMsg>({
+    userErr: "",
+    pwdErr: ""
+  });
 
-    const onUserFocus = () => {
-      isUserFocus.value = true;
-    };
+  const isUserFocus = ref<boolean>(false);
+  const isPwdFocus = ref<boolean>(false);
 
-    const onUserBlur = () => {
-      if (loginForm.username.length) {
-        localStorage.setItem("lgUserName", loginForm.username);
-      }
-      isUserFocus.value = checkUserVal(loginForm, errorMsg);
-    };
+  const onUserFocus = () => {
+    isUserFocus.value = true;
+  };
 
-    const onPwdFocus = () => {
-      isPwdFocus.value = true;
-    };
+  const onUserBlur = () => {
+    if (loginForm.username.length) {
+      localStorage.setItem("lgUserName", loginForm.username);
+    }
+    isUserFocus.value = checkUserVal(loginForm, errorMsg);
+  };
 
-    const onPwdBlur = () => {
-      isPwdFocus.value = checkPwdVal(loginForm);
-    };
+  const onPwdFocus = () => {
+    isPwdFocus.value = true;
+  };
 
-    const defaultVirifyTime = 60;
+  const onPwdBlur = () => {
+    isPwdFocus.value = checkPwdVal(loginForm);
+  };
 
-    let timer: any;
-    let currentVirifyTime = defaultVirifyTime;
+  const defaultVirifyTime = 60;
 
-    let pwdDisabled = ref(true);
+  let timer: any;
+  let currentVirifyTime = defaultVirifyTime;
 
-    const defaultText = "发送到即时通讯";
-    const viewText = ref(defaultText);
+  let pwdDisabled = ref(true);
 
-    const checkTime = () => {
-      const lgUserName = localStorage.getItem("lgUserName");
-      if (lgUserName) {
-        loginForm.username = lgUserName;
-      }
-      viewText.value = defaultText;
-      currentVirifyTime = defaultVirifyTime;
-      const virifySendTime = localStorage.getItem("virifySendTime");
-      if (!virifySendTime) {
-        pwdDisabled.value = false;
-        return;
-      }
-      const now = new Date().getTime();
-      const lessTime = division(subtraction(now, Number(virifySendTime)), 1000);
-      if (lessTime < defaultVirifyTime) {
-        pwdDisabled.value = true;
-        currentVirifyTime = Math.floor(
-          subtraction(defaultVirifyTime, lessTime)
-        );
+  const defaultText = "发送到即时通讯";
+  const viewText = ref(defaultText);
+
+  const checkTime = () => {
+    const lgUserName = localStorage.getItem("lgUserName");
+    if (lgUserName) {
+      loginForm.username = lgUserName;
+    }
+    viewText.value = defaultText;
+    currentVirifyTime = defaultVirifyTime;
+    const virifySendTime = localStorage.getItem("virifySendTime");
+    if (!virifySendTime) {
+      pwdDisabled.value = false;
+      return;
+    }
+    const now = new Date().getTime();
+    const lessTime = division(subtraction(now, Number(virifySendTime)), 1000);
+    if (lessTime < defaultVirifyTime) {
+      pwdDisabled.value = true;
+      currentVirifyTime = Math.floor(
+        subtraction(defaultVirifyTime, lessTime)
+      );
+      viewText.value = currentVirifyTime.toString();
+      setVirifyTimer();
+    } else {
+      pwdDisabled.value = false;
+    }
+  };
+
+  const setVirifyTimer = () => {
+    if (timer) {
+      clearInterval(timer);
+    } else {
+      timer = setInterval(() => {
+        currentVirifyTime = currentVirifyTime - 1;
         viewText.value = currentVirifyTime.toString();
-        setVirifyTimer();
-      } else {
-        pwdDisabled.value = false;
-      }
-    };
+        if (!currentVirifyTime) {
+          clearInterval(timer);
+          viewText.value = defaultText;
+          pwdDisabled = ref(false);
+        }
+      }, 1000);
+    }
+  };
 
-    const setVirifyTimer = () => {
-      if (timer) {
-        clearInterval(timer);
-      } else {
-        timer = setInterval(() => {
-          currentVirifyTime = currentVirifyTime - 1;
-          viewText.value = currentVirifyTime.toString();
-          if (!currentVirifyTime) {
-            clearInterval(timer);
-            viewText.value = defaultText;
-            pwdDisabled = ref(false);
-          }
-        }, 1000);
-      }
-    };
-
-    const handleVirify = (): void => {
-      if (checkPhone(loginForm, errorMsg)) {
-        getVerifyCode(loginForm.username)
-          .then((res) => {
-            if (!res.data) {
-              // $msg("error", "验证码发送失败！");
-            } else {
-              localStorage.setItem(
-                "virifySendTime",
-                new Date().getTime().toString()
-              );
-              // $msg("验证码发送成功！");
-              pwdDisabled = ref(true);
-              setVirifyTimer();
-            }
-          })
-          .catch(() => {
+  const handleVirify = (): void => {
+    if (checkPhone(loginForm, errorMsg)) {
+      getVerifyCode(loginForm.username)
+        .then((res) => {
+          if (!res.data) {
             // $msg("error", "验证码发送失败！");
-          });
-      }
-    };
+          } else {
+            localStorage.setItem(
+              "virifySendTime",
+              new Date().getTime().toString()
+            );
+            // $msg("验证码发送成功！");
+            pwdDisabled = ref(true);
+            setVirifyTimer();
+          }
+        })
+        .catch(() => {
+          // $msg("error", "验证码发送失败！");
+        });
+    }
+  };
 
-    const handleLogin = async () => {
-      const flag = cleckFormData(loginForm, errorMsg);
-      if (flag) {
-        const formData = {
-          username: loginForm.username,
-          code: loginForm.password
-        };
-        const _TOKEN = encrypt(formData);
-        console.log(_TOKEN, "_TOKEN");
-        await store.dispatch("user/accountLoginAction", _TOKEN);
-      }
-    };
+  const handleLogin = async () => {
+    const flag = cleckFormData(loginForm, errorMsg);
+    if (flag) {
+      const formData = {
+        username: loginForm.username,
+        code: loginForm.password
+      };
+      const _TOKEN = encrypt(formData);
+      console.log(_TOKEN, "_TOKEN");
+      await store.dispatch("user/accountLoginAction", _TOKEN);
+    }
+  };
 
-    onMounted(() => {
-      checkTime();
-      onPwdBlur();
-      onUserBlur();
-    });
+  onMounted(() => {
+    checkTime();
+    onPwdBlur();
+    onUserBlur();
+  });
 
-    return {
-      loginForm,
-      isUserFocus,
-      isPwdFocus,
-
-      onUserFocus,
-      onUserBlur,
-      errorMsg,
-
-      onPwdFocus,
-      onPwdBlur,
-      pwdDisabled,
-
-      handleVirify,
-      viewText,
-      handleLogin
-    };
-  }
-});
 </script>
 
 <style scoped lang="scss">
