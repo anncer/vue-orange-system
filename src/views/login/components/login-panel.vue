@@ -145,7 +145,7 @@ import { getVerifyCode } from "@/api/login/login";
         if (!currentVirifyTime) {
           clearInterval(timer);
           viewText.value = defaultText;
-          pwdDisabled = ref(false);
+          pwdDisabled.value = false;
         }
       }, 1000);
     }
@@ -163,7 +163,7 @@ import { getVerifyCode } from "@/api/login/login";
               new Date().getTime().toString()
             );
             // $msg("验证码发送成功！");
-            pwdDisabled = ref(true);
+            pwdDisabled.value = true;
             setVirifyTimer();
           }
         })
