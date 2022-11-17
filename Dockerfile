@@ -1,4 +1,4 @@
-FROM 10.122.163.225:5000/nginx:1.21.6
+FROM 10.122.163.225:5000/nginx:1.23.2
 MAINTAINER @DUOQIANG
 # 创建根目录
 WORKDIR /usr/share/nginx/ui
