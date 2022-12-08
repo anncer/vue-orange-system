@@ -50,7 +50,7 @@ export function parseTime(time: string | number | object, cFormat: string) {
  * @param {string} option
  * @returns {string}
  */
-export function formatTime(time: number) {
+export function formatTime(time: any) {
   const d = new Date(time).getTime();
   const now = Date.now();
 
@@ -65,6 +65,15 @@ export function formatTime(time: number) {
     return Math.ceil(diff / 3600) + "小时前";
   } else if (diff < 3600 * 24 * 2) {
     return "1天前";
+  } else if (diff < 3600 * 24 * 30){
+    const n = Math.floor(diff/(3600 * 24))
+    return n + "天前";
+  } else if(diff < 3600 * 24 * 365){
+    const n = Math.floor(diff/(3600 * 24 * 30))
+    return n + "月前";
+  } else {
+    const n = Math.floor(diff/(3600 * 24 * 365))
+    return n + "年前";
   }
 }
 
@@ -115,40 +124,6 @@ export function cleanArray(actual: any[]) {
     }
   }
   return newArray;
-}
-
-/**
- * @param {Object} json
- * @returns {Array}
- */
-export function param(json: any): string {
-  if (!json) return "";
-  return cleanArray(
-    Object.keys(json).map((key) => {
-      if (json[key] === undefined) return "";
-      return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
-    })
-  ).join("&");
-}
-
-/**
- * @param {string} url
- * @returns {Object}
- */
-export function param2Obj(url: string) {
-  const search = url.split("?")[1];
-  if (!search) {
-    return {};
-  }
-  return JSON.parse(
-    '{"' +
-      decodeURIComponent(search)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"')
-        .replace(/\+/g, " ") +
-      '"}'
-  );
 }
 
 /**

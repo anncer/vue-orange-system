@@ -2,10 +2,10 @@
 
 import { isArray, isProperty, isPlainObject, isFunction } from "./comment";
 // 获取当前时间的前几天或后几天
-export const GetDateSomeDay = (AddDayCount: number) => {
-  const dd = new Date();
+export const GetDateSomeDay = (count: number, current?: string, ) => {
+  const dd = current ? new Date(current) : new Date();
 
-  dd.setDate(dd.getDate() + AddDayCount);
+  dd.setDate(dd.getDate() + count);
   const y = dd.getFullYear();
   const m =
     dd.getMonth() + 1 < 10 ? "0" + (dd.getMonth() + 1) : dd.getMonth() + 1;
@@ -49,7 +49,7 @@ export const addPercentage = (n: number | string): string => {
 };
 
 // 判断返回number  正负数添加正负号
-export const checkNum = (num: number) => {
+export const setNumPercent = (num: number) => {
   if (isNaN(num)) return "--";
   if (num > 0) {
     return "+" + addPercentage(num);
@@ -72,7 +72,6 @@ export const getRealLen = (str: string): number => {
 
 // 小数点补两位
 export const returnFloat = (_value: number): string => {
-  console.log('......', _value)
   let value = String(Math.round(parseFloat(String(_value)) * 100) / 100);
   const xsd = value.toString().split(".");
 
