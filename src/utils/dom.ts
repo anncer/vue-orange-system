@@ -177,7 +177,7 @@ export const setText = (dom:any, text:any) => {
   }
 };
 
-export const setClazz = (dom:any, clazz:any) => {
+export const setClass = (dom:any, clazz:any) => {
   if (!isElement(dom)){
     return 'params error'
   }

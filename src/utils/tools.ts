@@ -2,7 +2,7 @@
 
 import { isArray, isProperty, isPlainObject, isFunction } from "./comment";
 // 获取当前时间的前几天或后几天
-export const GetDateSomeDay = (count: number, current?: string, ) => {
+export const getDateSomeDay = (count: number, current?: string, ) => {
   const dd = current ? new Date(current) : new Date();
 
   dd.setDate(dd.getDate() + count);
