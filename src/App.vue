@@ -1,14 +1,16 @@
 <template>
-  <div class="app">
+  <div class="app" :class="theme || 'light'">
     <router-view></router-view>
   </div>
 </template>
 
 <script setup lang="ts">
+import settings from '../config'
 
 defineOptions({
   name: "Main"
 });
+const { theme } = settings
 
 </script>
 
