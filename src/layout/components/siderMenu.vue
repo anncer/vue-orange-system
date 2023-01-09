@@ -1,7 +1,7 @@
 <template>
   <div class="menu-aside" :class="{ 'min-menu': false }">
     <div class="menu-wrapper">
-      <div class="aside-logo">
+      <div v-if="isLogo" class="aside-logo">
         <router-link to="/main">
           <img :src="logo" alt="" />
         </router-link>
@@ -32,11 +32,13 @@ import { ref } from "vue";
 import siderMenuItem from "@/layout/components/siderMenuItem.vue";
 import data from "./data";
 import logo from "@/assets/images/logo-load.svg";
+import settings from '../../../config'
 
 defineOptions({
   name: 'SiderMenu',
 })
 
+const { isLogo } = settings
 const collapsed = ref(false)
 const userMenus = data;
 

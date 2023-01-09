@@ -12,8 +12,8 @@ $danger-btn: #fa6156;
 $danger-light: #fcebe9;
 $white: #ffffff;
 $scrollbar-color: #d9d9d9;
-$asideBg: #343542;
-$asideFontColor: #fff;
+
+
 
 $contextFontSize: 12px;   //正文字体大小
 $contextColor: #172b4c;    //正文字体颜色
@@ -26,6 +26,19 @@ $btnFontStyle: $contextFontStyle; //按钮默认字体
 // 列表的字体颜色大小
 // 列表按钮使用小号按钮
 
+// 左侧菜单宽度px
+$sideBarWidth: 200px;
+$miniBarWidth: 60px;
+// 左侧列表字体颜色
+$leftColorLight: #3c8dbc;
+// 左侧背景颜色
+$leftBgLight: #f2f2f2;
+// 左侧菜单hover背景颜色
+$leftHoverBgLight: #eaf3fd;
+
+$leftBgDark: #343542;
+$leftColorDark: #fff;
+$leftHoverBgDark: #23232a;
 
 $colorGray1: #333333; //主要文案:标题,正文等文案颜色
 $colorGray2: #666666; //次要文案:导航,通用icon文案
@@ -37,5 +50,4 @@ $colorGray7: #fafafa; //表头底色
 $colorGray8: #eef5ff; //标签背景色  辅助按钮背景
 
 $commonPadding: 20px;
-$sideBarWidth: 200px;
-$miniBarWidth: 60px;
+

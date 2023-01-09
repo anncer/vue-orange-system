@@ -9,11 +9,12 @@
 }
 .menu-content{
   margin-top: 20px;
+  border-right: none;
 }
 .menu-aside{
   transition: width 0.28s;
   width: $sideBarWidth;
-  background: $asideBg;
+  background: $leftBgLight;
   height: 100%;
   position: fixed;
   font-size: 0px;
@@ -102,28 +103,33 @@
 .el-sub-menu__icon-arrow,
 .el-menu .el-menu-item:focus .menu-item-text
  {
-  color: $asideFontColor;
+  color: $leftColorLight;
+  border-right: none;
 }
 
 
 .menu-box,
 .el-menu-item,
 .el-submenu .el-menu {
-  background: $asideBg;
+  background: $leftBgLight;
 }
 .el-menu-item.is-active,
 .el-submenu__title,
 .el-sub-menu__title,
 .el-sub-menu__icon-arrow,
-.el-submenu__title:hover,
 .el-menu-item:focus {
-  background: $asideBg !important;
-  color: $asideFontColor !important;
+  background: $leftBgLight !important;
+  color: $leftColorLight !important;
 }
 .el-submenu__title,
 .el-sub-menu__title,
 .el-sub-menu__icon-arrow,
-.el-menu .el-menu-item:hover {
-  background: $asideBg !important;
-  color: $asideFontColor !important;
+.el-menu {
+  background: $leftBgLight !important;
+  color: $leftColorLight !important;
+}
+
+.el-menu-item:hover,
+.el-sub-menu__title:hover{
+  background: $leftHoverBgLight !important;
 }
