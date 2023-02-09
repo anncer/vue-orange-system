@@ -1,6 +1,12 @@
+import deny from './vite.deny'
+
 export default {
   port: 3000,
-  cors: true,
+  cors: false,
+  fs: {
+    strict: true,
+    deny
+  },
   proxy: {
 
     '/api/rules/regulations': {

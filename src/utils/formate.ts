@@ -227,3 +227,24 @@ export const jointUrl2 = (baseUrl: string, obj: any) => {
     return baseUrl;
   }
 };
+// 循环对象，并吧有值的键值对写在地址的后边
+export const jointUrl3 = (baseUrl: string, obj: any) => {
+  if (obj) {
+    const arr = [];
+    for (const it in obj) {
+      if (isObject(obj[it])) {
+        let str = ''
+        for (const key in obj[it]) {
+          const element = obj[it][key];
+          str += key + ":" + element
+        }
+        arr.push(it + "={" + str + "}")
+      } else {
+        arr.push(it + "=" + obj[it]);
+      }
+    }
+    return isRealArray(arr) ? baseUrl + "?" + toPoint(arr, "&") : baseUrl;
+  } else {
+    return baseUrl;
+  }
+};
