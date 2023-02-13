@@ -60,7 +60,7 @@ class GlobalRequest {
         const errorStatus = Number(error.response.status)
         if (errorStatus === 404 ) {
           router.push({path: '/404'})
-        } else {
+        } else (errorStatus === 401 ) {
           router.push({path: '/401'})
         }
         return Promise.reject(error);
