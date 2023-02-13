@@ -3,7 +3,7 @@ import axios from "axios";
 import type { AxiosInstance } from "axios";
 import type { GlobalRequestInterceptors, GlobalRequestConfig } from "./types";
 import { ElLoading } from "element-plus";
-import router from '@/router';
+// import router from '@/router';
 
 const DEFAULT_LOADING = false;
 class GlobalRequest {
@@ -51,17 +51,21 @@ class GlobalRequest {
 
         if (successStatus.includes(status)) {
           return data;
-        } else{
-          router.push({path: '/401'})
         }
+        //  else{
+        //   router.push({path: '/401'})
+        // }
       },
       (error) => {
         this.loadingComponent?.close();
         const errorStatus = Number(error.response.status)
-        if (errorStatus === 404 ) {
-          router.push({path: '/404'})
-        } else (errorStatus === 401 ) {
-          router.push({path: '/401'})
+
+        if (errorStatus === 404) {
+          // router.push({path: '/404'})
+          console.log(errorStatus, 'errorStatus')
+        } else if (errorStatus === 401) {
+          // router.push({path: '/401'})
+          console.log(errorStatus, 'errorStatus')
         }
         return Promise.reject(error);
       }
