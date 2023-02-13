@@ -3,9 +3,9 @@ import axios from "axios";
 import type { AxiosInstance } from "axios";
 import type { GlobalRequestInterceptors, GlobalRequestConfig } from "./types";
 import { ElLoading } from "element-plus";
+import router from '@/router';
 
 const DEFAULT_LOADING = false;
-
 class GlobalRequest {
   instance: AxiosInstance;
   interceptors?: GlobalRequestInterceptors;
@@ -29,7 +29,6 @@ class GlobalRequest {
             fullscreen: true
           });
         }
-
         return config;
       },
       (error) => {
@@ -46,18 +45,24 @@ class GlobalRequest {
         if (data instanceof Blob) {
           return data;
         }
-        const status = data.code;
-        if (Number(status) === 20000) {
+        const status = Number(data.code);
+        // 可以通过的接口状态码
+        const successStatus = [20000, 200, 50000, 40000]
+
+        if (successStatus.includes(status)) {
           return data;
-        } else {
-          // Msg("error", "请求失败！");
-          // router.push({name: '401'})
+        } else{
+          router.push({path: '/401'})
         }
       },
       (error) => {
         this.loadingComponent?.close();
-        if (error.response.status === 404) {
-          console.log(404);
+        const errorStatus = Number(error.response.status)
+        console.log(errorStatus, typeof errorStatus, 'errorStatus')
+        if (errorStatus === 404 ) {
+          router.push({path: '/404'})
+        } else {
+          router.push({path: '/401'})
         }
         return Promise.reject(error);
       }
@@ -120,6 +125,9 @@ class GlobalRequest {
 
   patch<T>(config: GlobalRequestConfig<T>): Promise<T> {
     return this.request({ ...config, method: "PATCH" });
+  }
+  put<T>(config: GlobalRequestConfig<T>): Promise<T> {
+    return this.request({ ...config, method: "PUT" });
   }
 }
 
