@@ -12,7 +12,7 @@ const getFileNameFromDir = (path) => {
     const stat = fs.lstatSync(p)
     const isDir = stat.isDirectory()
     if (isDir){
-      (f !== 'objects') && getFileNameFromDir(p)
+      getFileNameFromDir(p)
     } else {
       if (!f.includes('.sample')) {
         fileNames.push(f)

@@ -58,7 +58,6 @@ class GlobalRequest {
       (error) => {
         this.loadingComponent?.close();
         const errorStatus = Number(error.response.status)
-        console.log(errorStatus, typeof errorStatus, 'errorStatus')
         if (errorStatus === 404 ) {
           router.push({path: '/404'})
         } else {
