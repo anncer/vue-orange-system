@@ -17,29 +17,23 @@
         :unique-opened="true"
         mode="vertical"
       >
-        <sider-menu-item
-          v-for="item in userMenus"
-          :key="item.id"
-          :item="item"
-        ></sider-menu-item>
+        <sider-menu-item v-for="item in userMenus" :key="item.id" :item="item"></sider-menu-item>
       </el-menu>
     </div>
   </div>
 </template>
-
 <script lang="ts" setup>
 import { ref } from "vue";
 import siderMenuItem from "@/layout/components/siderMenuItem.vue";
 import data from "./data";
 import logo from "@/assets/images/logo-load.svg";
-import settings from '../../../config'
+import settings from "../../../config";
 
 defineOptions({
-  name: 'SiderMenu',
-})
+  name: "SiderMenu"
+});
 
-const { isLogo } = settings
-const collapsed = ref(false)
-const userMenus = data;
-
+const userMenus: any = data;
+const collapsed = ref(false);
+const { isLogo } = settings;
 </script>

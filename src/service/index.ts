@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import GlobalRequest from "./request";
 import cookie from "@/utils/cache";
-import { AxiosRequestHeaders } from 'axios';
+import { AxiosRequestHeaders } from "axios";
 
 const Api = new GlobalRequest({
   baseURL: "",
@@ -10,8 +10,8 @@ const Api = new GlobalRequest({
       const token = cookie.get("ESP-TOKEN");
 
       if (token) {
-        const headers:AxiosRequestHeaders = {};
-        headers['ESP-TOKEN'] = token;
+        const headers: AxiosRequestHeaders = {};
+        headers["ESP-TOKEN"] = token;
         headers.Authorization = token;
         config.headers = config.headers ? { ...config.headers, ...headers } : headers;
       }

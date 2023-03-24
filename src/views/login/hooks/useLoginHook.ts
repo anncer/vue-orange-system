@@ -5,7 +5,7 @@ import illustration3 from "../img/illustration3.svg";
 import illustration4 from "../img/illustration4.svg";
 import illustration5 from "../img/illustration5.svg";
 import illustration6 from "../img/illustration6.svg";
-import { ILoginForm, IErrorMsg } from "../type.d";
+import { ILoginForm, IErrorMsg } from "../types";
 
 export const setBg = () => {
   switch (String(new Date().getDay())) {
@@ -36,10 +36,7 @@ export const checkUserVal = (loginForm: ILoginForm, errorMsg: IErrorMsg) => {
   return checkPhone(loginForm, errorMsg);
 };
 
-export const checkPhone = (
-  loginForm: ILoginForm,
-  errorMsg: IErrorMsg
-): boolean => {
+export const checkPhone = (loginForm: ILoginForm, errorMsg: IErrorMsg): boolean => {
   const isUser = Boolean(loginForm.username);
   const isUserLen = loginForm.username.length === 11;
   errorMsg.userErr = !isUser ? "请输入手机号" : "";
@@ -48,10 +45,7 @@ export const checkPhone = (
   return isUser && isUserLen;
 };
 
-export const cleckFormData = (
-  loginForm: ILoginForm,
-  errorMsg: IErrorMsg
-): boolean => {
+export const cleckFormData = (loginForm: ILoginForm, errorMsg: IErrorMsg): boolean => {
   const isUser = Boolean(loginForm.username);
   const isUserLen = loginForm.username.length === 11;
   const isPwd = Boolean(loginForm.password);

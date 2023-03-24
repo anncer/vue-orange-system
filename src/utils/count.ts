@@ -14,10 +14,7 @@ function accMul(arg1: number, arg2: number): number {
       m += s2.split(".")[1].length;
     }
   } catch (e) {}
-  return (
-    (Number(s1.replace(".", "")) * Number(s2.replace(".", ""))) /
-    Math.pow(10, m)
-  );
+  return (Number(s1.replace(".", "")) * Number(s2.replace(".", ""))) / Math.pow(10, m);
 }
 // 加法
 export const addition = (arg1: number, arg2: number): number => {
@@ -70,10 +67,7 @@ export const multiplication = (arg1: number, arg2: number): number => {
   try {
     m += s2.split(".")[1].length;
   } catch (e) {}
-  return (
-    (Number(s1.replace(".", "")) * Number(s2.replace(".", ""))) /
-    Math.pow(10, m)
-  );
+  return (Number(s1.replace(".", "")) * Number(s2.replace(".", ""))) / Math.pow(10, m);
 };
 
 // 除法

@@ -1,6 +1,6 @@
 /* eslint-disable no-empty-pattern */
 import { Module } from "vuex";
-import { IUserModule, IBaseState } from "../types.d";
+import type { IUserModule, IBaseState } from "../types";
 import { userLogin, getUserInfo } from "@/api/login/login";
 import cookie from "@/utils/cache";
 

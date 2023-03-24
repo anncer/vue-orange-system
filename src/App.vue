@@ -5,15 +5,13 @@
 </template>
 
 <script setup lang="ts">
-import settings from '../config'
+import settings from "../config";
 
 defineOptions({
   name: "Main"
 });
-const { theme } = settings
-
+const { theme } = settings;
 </script>
-
 
 <style scoped>
 .logo {

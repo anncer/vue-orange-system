@@ -12,11 +12,11 @@ import compositeWare from "composite-ware";
 
 import "element-plus/dist/index.css";
 
-import 'composite-ware/theme-chalk/index.css'
+import "composite-ware/theme-chalk/index.css";
 
 import "normalize.css";
 import "./styles/index.scss";
-import 'virtual:svg-icons-register'
+import "virtual:svg-icons-register";
 
 const app = createApp(App);
 

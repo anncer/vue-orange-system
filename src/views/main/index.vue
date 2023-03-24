@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-import SvgIcon from '@/components/svgIcon/index.vue'
+import SvgIcon from "@/components/svgIcon/index.vue";
 defineOptions({
   name: "Main"
 });

@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { IAppModule, IBaseState } from "../types.d";
+import type { IAppModule, IBaseState } from "../types";
 
 const state = (): IAppModule => {
   return {

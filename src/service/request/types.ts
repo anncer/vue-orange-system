@@ -7,8 +7,7 @@ export interface GlobalRequestInterceptors<T = AxiosResponse> {
   responseInterceptorCatch?: (error: any) => any;
 }
 
-export interface GlobalRequestConfig<T = AxiosResponse>
-  extends AxiosRequestConfig {
+export interface GlobalRequestConfig<T = AxiosResponse> extends AxiosRequestConfig {
   interceptors?: GlobalRequestInterceptors<T>;
   loading?: boolean;
 }

@@ -66,7 +66,6 @@ export function isEmail(email: string): boolean {
 }
 
 export function isPhone(phone: number): boolean {
-  const reg =
-    /^(1)[0-9]{10}$/;
+  const reg = /^(1)[0-9]{10}$/;
   return reg.test(String(phone));
 }

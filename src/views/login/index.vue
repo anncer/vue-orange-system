@@ -24,7 +24,7 @@ import { setBg } from "./hooks/useLoginHook";
 import bg from "./img/bg.png";
 import avatarSvg from "@/assets/images/logo-unload.svg";
 
-const currentWeek = ref(setBg())
+const currentWeek = ref(setBg());
 </script>
 
 <style scoped lang="scss">

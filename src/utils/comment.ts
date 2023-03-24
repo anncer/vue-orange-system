@@ -35,8 +35,7 @@ export const isEmptyObj = (obj: object) => {
 export const isNumber = (val: number): boolean => {
   const str = val.toString();
   const regPos = /^\d+(\.\d+)?$/; // 非负浮点数
-  const regNeg =
-    /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; // 负浮点数
+  const regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; // 负浮点数
 
   return regPos.test(str) || regNeg.test(str);
 };
@@ -70,8 +69,7 @@ export const getType = (target: any) => {
 
 export const typeOf = (obj: any) => {
   const class2type: any = {};
-  const typeList =
-    "Boolean Number String Function Array Date RegExp Object Error Symbol";
+  const typeList = "Boolean Number String Function Array Date RegExp Object Error Symbol";
   typeList.split(" ").forEach(function (name) {
     class2type["[object " + name + "]"] = name.toLowerCase();
   });
@@ -79,9 +77,7 @@ export const typeOf = (obj: any) => {
   if (obj == null) {
     return String(obj);
   }
-  return typeof obj === "object" || typeof obj === "function"
-    ? class2type[toString.call(obj)] || "object"
-    : typeof obj;
+  return typeof obj === "object" || typeof obj === "function" ? class2type[toString.call(obj)] || "object" : typeof obj;
 };
 
 // 判断一个对象是不是素对象
@@ -108,12 +104,7 @@ export const isEmpty = (obj: any) => {
         obj[key].length > 0 ? (_v = false) : (_v = true);
       } else if (typeof obj[key] === "object") {
         isEmpty(obj[key]);
-      } else if (
-        obj[key] != null &&
-        obj[key] !== undefined &&
-        obj[key] !== "null" &&
-        obj[key] !== "undefined"
-      ) {
+      } else if (obj[key] != null && obj[key] !== undefined && obj[key] !== "null" && obj[key] !== "undefined") {
         _v = false;
       }
     }

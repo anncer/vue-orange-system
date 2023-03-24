@@ -7,18 +7,18 @@ export function toggleClass(element: any, className: string) {
     return;
   }
   let classString = element.className;
-  const arr = classString.split(' ')
+  const arr = classString.split(" ");
   if (arr.includes(className)) {
-    const idx = arr.indexOf(className)
-    arr.splice(idx, 1)
+    const idx = arr.indexOf(className);
+    arr.splice(idx, 1);
   } else {
-    arr.push(className)
+    arr.push(className);
   }
-  element.className = arr.join(' ');
+  element.className = arr.join(" ");
 }
 
 // 获取一个元素的样式
-export const getCss = (obj: any, attribute:any) => {
+export const getCss = (obj: any, attribute: any) => {
   if (obj.currentStyle) {
     return obj.currentStyle[attribute];
   } else {
@@ -29,7 +29,7 @@ export const getCss = (obj: any, attribute:any) => {
 /*
  * 获取元素位置
  */
-export const getPoint = (obj:any) => {
+export const getPoint = (obj: any) => {
   // 获取某元素以浏览器左上角为原点的坐标
   let t = obj.offsetTop; // 获取该元素对应父容器的上边距
   let l = obj.offsetLeft; // 对应父容器的上边距
@@ -72,19 +72,18 @@ export const getDom = (str: string) => {
  * @param {String} .xxxx
  */
 
-export const getParents = (dom: any, clazz: string):any => {
-  if (!isElement(dom)){
-    return 'params error'
+export const getParents = (dom: any, clazz: string): any => {
+  if (!isElement(dom)) {
+    return "params error";
   }
   return getParentTags(dom, clazz);
 };
 
-const getParentTags = (startTag: any, clazz: any, parentTagList:any[] = []):any => {
+const getParentTags = (startTag: any, clazz: any, parentTagList: any[] = []): any => {
   // 传入标签是否是DOM对象
-  if (!(startTag instanceof HTMLElement))
-    return console.error("receive only HTMLElement");
+  if (!(startTag instanceof HTMLElement)) return console.error("receive only HTMLElement");
   // 父级标签是否是body,是着停止返回集合,反之继续
-  const parent:any = startTag.parentElement;
+  const parent: any = startTag.parentElement;
   if ("BODY" !== parent.nodeName) {
     // 放入集合
     if (clazz) {
@@ -102,9 +101,9 @@ const getParentTags = (startTag: any, clazz: any, parentTagList:any[] = []):any 
   else return parentTagList;
 };
 
-export const getParent = (dom:any) => {
-  if (!isElement(dom)){
-    return 'params error'
+export const getParent = (dom: any) => {
+  if (!isElement(dom)) {
+    return "params error";
   }
   if (!(dom instanceof HTMLElement)) {
     return console.error("receive only HTMLElement");
@@ -126,7 +125,7 @@ export const getParent = (dom:any) => {
  * @param {Dom Object} value
  * @param {String} dom name
  */
-export const createDom = (name:any) => {
+export const createDom = (name: any) => {
   return document.createElement(name);
 };
 /**
@@ -134,9 +133,9 @@ export const createDom = (name:any) => {
  * @param {Dom Object/ String}
  * @param {Object}
  */
-export const setStyle = (dom:any, obj:any) => {
-  if (!isElement(dom)){
-    return 'params error'
+export const setStyle = (dom: any, obj: any) => {
+  if (!isElement(dom)) {
+    return "params error";
   }
   for (const key in obj) {
     dom.style[key] = obj[key];
@@ -145,14 +144,14 @@ export const setStyle = (dom:any, obj:any) => {
 /**
  * 判断元素是不是element元素或者根元素
  */
-export const isElement = (dom:any) => {
+export const isElement = (dom: any) => {
   return Boolean(dom && (dom.nodeType === 1 || dom.nodeType === 9));
 };
 /**
  * 判断字符串能不能查到元素，
  * 如果是，返回元素，不是则返回null
  */
-export const getDomByStr = (name:any) => {
+export const getDomByStr = (name: any) => {
   let dom = null;
   if (typeof name === "string") {
     dom = getDom(name);
@@ -168,18 +167,18 @@ export const getDomByStr = (name:any) => {
  * @param {Dom Object} value
  * @param {String, Dom} .xxxx
  */
-export const setText = (dom:any, text:any) => {
-  if (!isElement(dom)){
-    return 'params error'
+export const setText = (dom: any, text: any) => {
+  if (!isElement(dom)) {
+    return "params error";
   }
   if (dom) {
     dom.innerText = text;
   }
 };
 
-export const setClass = (dom:any, clazz:any) => {
-  if (!isElement(dom)){
-    return 'params error'
+export const setClass = (dom: any, clazz: any) => {
+  if (!isElement(dom)) {
+    return "params error";
   }
   dom.className = clazz.trim();
 };
@@ -190,9 +189,9 @@ export const setClass = (dom:any, clazz:any) => {
  * @param {string} cls
  * @returns {boolean}
  */
-export function hasClass(ele:any, cls:any) {
+export function hasClass(ele: any, cls: any) {
   if (!cls || !isElement(ele)) {
-    return 'hasClass: params error'
+    return "hasClass: params error";
   }
   return Boolean(ele.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)")));
 }
@@ -202,18 +201,18 @@ export function hasClass(ele:any, cls:any) {
  * @param {HTMLElement} elm
  * @param {string} cls
  */
-export function addClass(ele:any, cls:any) {
-  if (!isElement(ele)){
-    return 'params error'
+export function addClass(ele: any, cls: any) {
+  if (!isElement(ele)) {
+    return "params error";
   }
-  const clsArr = cls.trim().split(' ')
-  const hasedClazz = ele.className.split(' ')
+  const clsArr = cls.trim().split(" ");
+  const hasedClazz = ele.className.split(" ");
   clsArr.forEach((clsItem: string) => {
-      if (clsItem && !hasClass(ele, clsItem)) {
-        hasedClazz.push(clsItem);
+    if (clsItem && !hasClass(ele, clsItem)) {
+      hasedClazz.push(clsItem);
     }
   });
-  ele.className = hasedClazz.join(' ')
+  ele.className = hasedClazz.join(" ");
 }
 
 /**
@@ -221,19 +220,19 @@ export function addClass(ele:any, cls:any) {
  * @param {HTMLElement} elm
  * @param {string} cls
  */
-export function removeClass(ele:any, cls:any) {
-  if (!isElement(ele)){
-    return 'params error'
+export function removeClass(ele: any, cls: any) {
+  if (!isElement(ele)) {
+    return "params error";
   }
   if (hasClass(ele, cls)) {
-    const arr = ele.className.split(' ')
-    const idx = arr.indexOf(cls.trim)
-    arr.splice(idx, 1)
-    ele.className = arr.join(' ');
+    const arr = ele.className.split(" ");
+    const idx = arr.indexOf(cls.trim);
+    arr.splice(idx, 1);
+    ele.className = arr.join(" ");
   }
 }
 
-export const appendChild = (dom:any, doms:any) => {
+export const appendChild = (dom: any, doms: any) => {
   if (doms instanceof Array) {
     doms.forEach((it) => {
       dom.appendChild(it);
@@ -244,7 +243,7 @@ export const appendChild = (dom:any, doms:any) => {
 };
 
 // 获取元素的子级，clazz为可选参数
-export function getChildren(ele:any, clazz:any) {
+export function getChildren(ele: any, clazz: any) {
   const eleChild = ele.children;
   const res = [];
   for (let i = 0; i < eleChild.length; i++) {

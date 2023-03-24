@@ -28,7 +28,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/404",
     name: "404",
     component: () => import("@/views/error-page/404.vue")
-  },
+  }
 ];
 
 export default routes;

@@ -65,14 +65,14 @@ export function formatTime(time: any) {
     return Math.ceil(diff / 3600) + "小时前";
   } else if (diff < 3600 * 24 * 2) {
     return "1天前";
-  } else if (diff < 3600 * 24 * 30){
-    const n = Math.floor(diff/(3600 * 24))
+  } else if (diff < 3600 * 24 * 30) {
+    const n = Math.floor(diff / (3600 * 24));
     return n + "天前";
-  } else if(diff < 3600 * 24 * 365){
-    const n = Math.floor(diff/(3600 * 24 * 30))
+  } else if (diff < 3600 * 24 * 365) {
+    const n = Math.floor(diff / (3600 * 24 * 30));
     return n + "月前";
   } else {
-    const n = Math.floor(diff/(3600 * 24 * 365))
+    const n = Math.floor(diff / (3600 * 24 * 365));
     return n + "年前";
   }
 }
@@ -189,7 +189,7 @@ export const toPoint = (arr: any[], coin = ",", type = false) => {
   }
   return str;
 };
-const deepSetObj = (obj:any, arr:any) => {
+const deepSetObj = (obj: any, arr: any) => {
   for (const it in obj) {
     if (isObject(obj[it])) {
       deepSetObj(obj[it], arr);
@@ -199,9 +199,9 @@ const deepSetObj = (obj:any, arr:any) => {
   }
 };
 // 循环对象，并吧有值的键值对写在地址的后边
-export const jointUrl = (baseUrl:any, obj:any) => {
+export const jointUrl = (baseUrl: any, obj: any) => {
   if (obj) {
-    const arr:any = [];
+    const arr: any = [];
     deepSetObj(obj, arr);
     return isRealArray(arr) ? baseUrl + "?" + toPoint(arr, "&") : baseUrl;
   } else {
@@ -233,12 +233,12 @@ export const jointUrl3 = (baseUrl: string, obj: any) => {
     const arr = [];
     for (const it in obj) {
       if (isObject(obj[it])) {
-        let str = ''
+        let str = "";
         for (const key in obj[it]) {
           const element = obj[it][key];
-          str += key + ":" + element
+          str += key + ":" + element;
         }
-        arr.push(it + "={" + str + "}")
+        arr.push(it + "={" + str + "}");
       } else {
         arr.push(it + "=" + obj[it]);
       }

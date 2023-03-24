@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import { IBaseState } from "./types.d";
+import type { IBaseState } from "./types";
 import app from "./modules/app";
 import user from "./modules/user";
 

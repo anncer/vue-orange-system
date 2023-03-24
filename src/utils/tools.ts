@@ -2,13 +2,12 @@
 
 import { isArray, isProperty, isPlainObject, isFunction } from "./comment";
 // 获取当前时间的前几天或后几天
-export const getDateSomeDay = (count: number, current?: string, ) => {
+export const getDateSomeDay = (count: number, current?: string) => {
   const dd = current ? new Date(current) : new Date();
 
   dd.setDate(dd.getDate() + count);
   const y = dd.getFullYear();
-  const m =
-    dd.getMonth() + 1 < 10 ? "0" + (dd.getMonth() + 1) : dd.getMonth() + 1;
+  const m = dd.getMonth() + 1 < 10 ? "0" + (dd.getMonth() + 1) : dd.getMonth() + 1;
   const d = dd.getDate() < 10 ? "0" + dd.getDate() : dd.getDate();
 
   return y + "-" + m + "-" + d;
@@ -40,10 +39,7 @@ export const addPercentage = (n: number | string): string => {
   cents = cents.length > 1 ? cents : "";
   center = num.indexOf(".") > 0 ? num.substring(0, num.indexOf(".")) : num;
   for (let i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++) {
-    center =
-      num.substring(0, num.length - (4 * i + 3)) +
-      "," +
-      num.substring(num.length - (4 * i + 3));
+    center = num.substring(0, num.length - (4 * i + 3)) + "," + num.substring(num.length - (4 * i + 3));
   }
   return sign + center + cents;
 };
@@ -169,39 +165,37 @@ export const deepClone = (obj: any) => {
 // 金额分隔符
 export const analysiss = (opt: number | string) => {
   if (opt) {
-      const str = opt + '';    //把数字变成string类型
-      if (str.indexOf('.') !== -1) {  //判断是否附带小数
-          const intSum = str
-              .substring(0, str.indexOf('.'))
-              .replace(/\B(?=(?:\d{3})+$)/g, ','); //取到整数部分
-          const dot = str.substring(str.length, str.indexOf('.')); //取到小数部分搜索
-          const ret = intSum + dot;
-          return ret;
-      } else {
-          const ret = str.replace(/\B(?=(?:\d{3})+$)/g, ',');
-          return ret + '.00';
-      }
+    const str = opt + ""; //把数字变成string类型
+    if (str.indexOf(".") !== -1) {
+      //判断是否附带小数
+      const intSum = str.substring(0, str.indexOf(".")).replace(/\B(?=(?:\d{3})+$)/g, ","); //取到整数部分
+      const dot = str.substring(str.length, str.indexOf(".")); //取到小数部分搜索
+      const ret = intSum + dot;
+      return ret;
+    } else {
+      const ret = str.replace(/\B(?=(?:\d{3})+$)/g, ",");
+      return ret + ".00";
+    }
   } else {
-      return '0.00';
+    return "0.00";
   }
-}
+};
 
 // 金额分隔符
 export const analysis = (opt: number | string) => {
   if (opt) {
-      const str = opt + '';    //把数字变成string类型
-      if (str.indexOf('.') !== -1) {  //判断是否附带小数
-          const intSum = str
-              .substring(0, str.indexOf('.'))
-              .replace(/\B(?=(?:\d{3})+$)/g, ','); //取到整数部分
-          const dot = str.substring(str.length, str.indexOf('.')); //取到小数部分搜索
-          const ret = intSum + dot;
-          return ret;
-      } else {
-          const ret = str.replace(/\B(?=(?:\d{3})+$)/g, ',');
-          return ret ;
-      }
+    const str = opt + ""; //把数字变成string类型
+    if (str.indexOf(".") !== -1) {
+      //判断是否附带小数
+      const intSum = str.substring(0, str.indexOf(".")).replace(/\B(?=(?:\d{3})+$)/g, ","); //取到整数部分
+      const dot = str.substring(str.length, str.indexOf(".")); //取到小数部分搜索
+      const ret = intSum + dot;
+      return ret;
+    } else {
+      const ret = str.replace(/\B(?=(?:\d{3})+$)/g, ",");
+      return ret;
+    }
   } else {
-      return '0';
+    return "0";
   }
-}
+};

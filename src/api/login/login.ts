@@ -1,5 +1,6 @@
 import Api from "@/service";
-import { IBaseRequest, ILoginUser } from "./types.d";
+import type { IBaseRequest } from "../global/types";
+import type { ILoginUser } from "./types";
 
 enum LoginApi {
   loginAccount = "api/security/auth/login",

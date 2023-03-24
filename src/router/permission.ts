@@ -2,18 +2,18 @@ import router from "./index";
 import cookie from "@/utils/cache";
 
 router.beforeEach(async (to, from, next) => {
-  const token = cookie.get("ESP-TOKEN")
-  const whitePages = ['/401', '/404', '/login']
+  const token = cookie.get("ESP-TOKEN");
+  const whitePages = ["/401", "/404", "/login"];
 
   if (token) {
     // 验证权限
-    next()
+    next();
   } else {
     if (whitePages.includes(to.path)) {
-      next()
+      next();
     } else {
-      router.push({path: '/401'})
-      next('/401')
+      router.push({ path: "/401" });
+      next("/401");
     }
   }
 
