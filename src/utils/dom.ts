@@ -6,7 +6,7 @@ export function toggleClass(element: any, className: string) {
   if (!element || !className) {
     return;
   }
-  let classString = element.className;
+  const classString = element.className;
   const arr = classString.split(" ");
   if (arr.includes(className)) {
     const idx = arr.indexOf(className);

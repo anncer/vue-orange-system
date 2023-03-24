@@ -50,7 +50,7 @@ export default defineComponent({
     };
 
     const checkChildren = (it: IRouterItem): boolean => {
-      return item && isProperty(it, "children") && isRealArray(it.children);
+      return item.value && isProperty(it, "children") && isRealArray(it.children);
     };
 
     const isChildren = computed<boolean>(() => checkChildren(item.value));

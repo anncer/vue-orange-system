@@ -2,7 +2,6 @@
   "name": "cmp-template-ui",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite --host",
     "build": "run-p type-check build-only",
