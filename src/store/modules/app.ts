@@ -1,4 +1,4 @@
-import { Module } from "vuex";
+import type { Module } from "vuex";
 import type { IAppModule, IBaseState } from "../types";
 
 const state = (): IAppModule => {

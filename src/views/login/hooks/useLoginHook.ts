@@ -5,7 +5,7 @@ import illustration3 from "../img/illustration3.svg";
 import illustration4 from "../img/illustration4.svg";
 import illustration5 from "../img/illustration5.svg";
 import illustration6 from "../img/illustration6.svg";
-import { ILoginForm, IErrorMsg } from "../types";
+import type { ILoginForm, IErrorMsg } from "../types";
 
 export const setBg = () => {
   switch (String(new Date().getDay())) {
