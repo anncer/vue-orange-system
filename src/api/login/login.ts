@@ -1,5 +1,5 @@
 import Api from "@/service";
-import type { IBaseRequest } from "../global/types";
+import type { GlobalDataRequest } from "../global/types";
 import type { ILoginUser } from "./types";
 
 enum LoginApi {
@@ -10,7 +10,7 @@ enum LoginApi {
 }
 
 export const userLogin = (token: string) => {
-  return Api.post<IBaseRequest<string>>({
+  return Api.post<GlobalDataRequest<string>>({
     url: LoginApi.loginAccount,
     headers: {
       Authorization: token
@@ -19,7 +19,7 @@ export const userLogin = (token: string) => {
 };
 
 export const getVerifyCode = (mobile: string, method = "IM") => {
-  return Api.post<IBaseRequest<boolean>>({
+  return Api.post<GlobalDataRequest<boolean>>({
     url: LoginApi.verifyCode,
     data: {
       mobile,
@@ -29,13 +29,13 @@ export const getVerifyCode = (mobile: string, method = "IM") => {
 };
 
 export const getUserInfo = () => {
-  return Api.get<IBaseRequest<ILoginUser>>({
+  return Api.get<GlobalDataRequest<ILoginUser>>({
     url: LoginApi.userInfo
   });
 };
 
 export function getUserMenus(id: string) {
-  return Api.get<IBaseRequest<ILoginUser>>({
+  return Api.get<GlobalDataRequest<ILoginUser>>({
     url: LoginApi.menus,
     data: { id }
   });

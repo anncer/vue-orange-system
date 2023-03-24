@@ -1,8 +1,3 @@
-export interface IBaseRequest<T = any> {
-  code: number;
-  data: T;
-  message: string;
-}
 
 export interface ILoginUser {
   avatar: string;

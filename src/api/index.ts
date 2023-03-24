@@ -1,76 +1,85 @@
-import http from "@/service";
+import Api from "@/service";
 import { jointUrl, jointUrl2 } from "@/utils/formate";
 
-const add = (name: string, data: any) => {
-  return http.request({
+// 接口使用示例， 需要在调用的时候传入数据类型
+// import Api from '@/api'
+// import type { GlobalDataRequest } from "./global/types";
+// import type { ILoginUser } from "./login/types";
+// Api.update<GlobalDataRequest<ILoginUser>>('name', {})
+//   .then(res => {
+//     res.data.deptName
+//   })
+
+const add = <T>(name: string, data:any) => {
+  return Api.request<T>({
     url: `${name}`,
     data,
-    method: "post"
+    method: "post",
   });
 };
 
-const update = (name: string, data: any) => {
-  return http.request({
+const update = <T>(name: string, data:any) => {
+  return Api.request<T>({
     url: `${name}`,
     data,
-    method: "put"
+    method: "put",
   });
 };
 
-const get = (name: string, id?: string) => {
+const get = <T>(name: string, id?: string) => {
   const url = id ? `${name}/${id}` : `${name}`;
-  return http.request({
+  return Api.request<T>({
     url,
-    method: "get"
+    method: "get",
   });
 };
 
-const getCode = (name: string, code: string) => {
-  return http.request({
+const getCode = <T>(name: string, code: string) => {
+  return Api.request<T>({
     url: `${name}/identifier/${code}`,
-    method: "get"
+    method: "get",
   });
 };
 
-const list = (name: string, ...args: any) => {
-  return http.request({
+const list = <T>(name: string, ...args: any) => {
+  return Api.request<T>({
     url: `${name}${jointUrl("", args)}`,
-    method: "get"
+    method: "get",
   });
 };
 
-const page = (name: string, data: any) => {
-  return http.request({
+const page = <T>(name: string, data:any) => {
+  return Api.request<T>({
     url: `${name}/page${jointUrl2("", data)}`,
-    method: "get"
+    method: "get",
   });
 };
 
-const remove = (name: string, id: string) => {
-  return http.request({
+const remove = <T>(name: string, id: string) => {
+  return Api.request<T>({
     url: `${name}/${id}`,
-    method: "delete"
+    method: "delete",
   });
 };
 
-const down = (name: string) => {
-  return http.request({
+const down = <T>(name: string) => {
+  return Api.request<T>({
     url: name,
     method: "get",
-    responseType: "blob"
+    responseType: "blob",
     // application/octet-stream
   });
 };
 
-const file = (name: string, data: any) => {
-  return http.post({
+const file = <T>(name: string, data:any) => {
+  return Api.post<T>({
     url: name,
     data: data,
     method: "post",
     headers: {
       "Content-Type": "multipart/form-data",
-      withCredentials: true
-    }
+      withCredentials: true,
+    },
   });
 };
 
@@ -83,5 +92,5 @@ export default {
   delete: remove,
   getCode,
   down,
-  file
+  file,
 };

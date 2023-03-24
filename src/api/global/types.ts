@@ -1,12 +1,10 @@
-export interface IBaseRequest<T = any> {
+export interface GlobalBaseRequest {
   code: number;
-  data: T;
   message: string;
 }
 
-export interface IServiewTime {
-  avatar: string;
-  name: string;
-  id: string;
-  mobile: number;
+
+export interface GlobalDataRequest<T>  extends GlobalBaseRequest{
+  data: T;
 }
+
