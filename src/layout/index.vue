@@ -7,15 +7,12 @@
   </transition>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="Layout">
 import AppMain from "@/layout/components/appMain.vue";
 import siderMenu from "./components/siderMenu.vue";
-import settings from "../../config";
-
-defineOptions({
-  name: "Layout"
-});
-
+import settings from "../../settings";
+import process from 'process'
+console.log(process, 'process')
 const { isLeftbar } = settings;
 const isBar = process.env.NODE_ENV === "development" ? false : isLeftbar;
 </script>

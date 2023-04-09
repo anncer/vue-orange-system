@@ -22,16 +22,12 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
+<script lang="ts" setup name="SiderMenu">
 import { ref } from "vue";
 import siderMenuItem from "@/layout/components/siderMenuItem.vue";
 import data from "./data";
 import logo from "@/assets/images/logo-load.svg";
-import settings from "../../../config";
-
-defineOptions({
-  name: "SiderMenu"
-});
+import settings from "../../../settings";
 
 const userMenus: any = data;
 const collapsed = ref(false);

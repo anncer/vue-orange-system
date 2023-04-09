@@ -4,12 +4,9 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import settings from "../config";
+<script setup lang="ts" name="App">
+import settings from "../settings";
 
-defineOptions({
-  name: "Main"
-});
 const { theme } = settings;
 </script>
 
