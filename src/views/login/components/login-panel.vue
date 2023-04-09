@@ -17,14 +17,8 @@
         </div>
         <div>
           <h5>验证码</h5>
-          <input
-            type="password"
-            class="login-input"
-            v-model="loginForm.password"
-            @keydown.enter="handleLogin"
-            @focus="onPwdFocus"
-            @blur="onPwdBlur"
-          />
+          <input type="password" class="login-input" v-model="loginForm.password" @keydown.enter="handleLogin"
+            @focus="onPwdFocus" @blur="onPwdBlur" />
         </div>
       </div>
       <el-button type="primary" :disabled="pwdDisabled" :class="['virify-btn']" @click="handleVirify">
@@ -36,20 +30,16 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="LoginPanel">
 import { reactive, ref, onMounted } from "vue";
 import type { ILoginForm, IErrorMsg } from "../types";
 import { checkPwdVal, checkUserVal, checkPhone, cleckFormData } from "../hooks/useLoginHook";
-import { division, subtraction } from "@/utils/count";
+import { division, subtraction } from "compool";
 import encrypt from "@/utils/encrypt";
-import { useStore } from "vuex";
+import { useUserStore } from "@/store/user";
 import { getVerifyCode } from "@/api/login/login";
 
-defineOptions({
-  name: "LoginPanel"
-});
-
-const store = useStore();
+const useUserState = useUserStore();
 
 const loginForm = reactive<ILoginForm>({
   username: "",
@@ -160,8 +150,7 @@ const handleLogin = async () => {
       code: loginForm.password
     };
     const _TOKEN = encrypt(formData);
-    console.log(_TOKEN, "_TOKEN");
-    await store.dispatch("user/accountLoginAction", _TOKEN);
+    await useUserState.accountLoginAction(_TOKEN);
   }
 };
 
@@ -174,6 +163,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 @import "@/styles/variables.scss";
+
 .input-group {
   position: relative;
   display: -ms-grid;
@@ -191,6 +181,7 @@ onMounted(() => {
   color: $danger;
   font-size: 14px;
 }
+
 // .input-group:nth-child(1) {
 //   margin-bottom: 4px;
 //   margin-top: 25px;
@@ -226,12 +217,12 @@ onMounted(() => {
   transition: 0.5s;
 }
 
-.input-group > div {
+.input-group>div {
   position: relative;
   height: 45px;
 }
 
-.input-group > div > h5 {
+.input-group>div>h5 {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -289,9 +280,11 @@ onMounted(() => {
   margin-top: 25px;
   display: flex;
   flex-direction: row;
+
   .input-group {
     flex: 1;
   }
+
   .virify-btn {
     height: 40px;
     margin-top: 20px;

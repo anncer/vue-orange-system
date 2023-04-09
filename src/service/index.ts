@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import GlobalRequest from "./request";
-import cookie from "@/utils/cache";
-import { AxiosRequestHeaders } from "axios";
+import cookie from "auth-cookie";
+import type { AxiosRequestHeaders } from "axios";
 
 const Api = new GlobalRequest({
   baseURL: "",

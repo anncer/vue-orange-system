@@ -20,7 +20,7 @@
 <script lang="ts">
 import { defineComponent, toRefs, computed } from "vue";
 import type { PropType } from "vue";
-import { isProperty, isRealArray } from "@/utils/comment";
+import { isProperty, isRealArray} from 'compool'
 import type { IRouterItem } from "../types";
 // import SvgIcon from "@/components/svgIcon/index.vue";
 

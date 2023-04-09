@@ -1,5 +1,5 @@
 import router from "./index";
-import cookie from "@/utils/cache";
+import cookie from "auth-cookie";
 
 router.beforeEach(async (to, from, next) => {
   const token = cookie.get("ESP-TOKEN");
