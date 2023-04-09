@@ -73,6 +73,7 @@ class GlobalRequest {
 
     // 实例的拦截器
     this.instance.interceptors.request.use(
+      // @ts-ignore
       this.interceptors?.requestInterceptor,
       this.interceptors?.requestInterceptorCatch
     );
