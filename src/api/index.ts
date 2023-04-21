@@ -1,5 +1,5 @@
 import Api from "@/service";
-import { jointUrl, jointUrl2 } from "@/utils/formate";
+import { qsSpread, qsKeep } from "compool";
 
 // 接口使用示例， 需要在调用的时候传入数据类型
 // import Api from '@/api'
@@ -43,14 +43,14 @@ const getCode = <T>(name: string, code: string) => {
 
 const list = <T>(name: string, ...args: any) => {
   return Api.request<T>({
-    url: `${name}${jointUrl("", args)}`,
+    url: `${name}${qsSpread("", args)}`,
     method: "get",
   });
 };
 
 const page = <T>(name: string, data:any) => {
   return Api.request<T>({
-    url: `${name}/page${jointUrl2("", data)}`,
+    url: `${name}/page${qsKeep("", data)}`,
     method: "get",
   });
 };
