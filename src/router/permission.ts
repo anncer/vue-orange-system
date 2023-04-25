@@ -1,21 +1,21 @@
 import router from "./index";
-import cookie from "auth-cookie";
+// import cookie from "auth-cookie";
 
 router.beforeEach(async (to, from, next) => {
-  const token = cookie.get("ESP-TOKEN");
-  const whitePages = ["/401", "/404", "/login"];
+  // const token = cookie.get("ESP-TOKEN");
+  // const whitePages = ["/401", "/404", "/login"];
 
-  if (token) {
-    // 验证权限
+  // if (token) {
+  //   // 验证权限
     next();
-  } else {
-    if (whitePages.includes(to.path)) {
-      next();
-    } else {
-      router.push({ path: "/401" });
-      next("/401");
-    }
-  }
+  // } else {
+  //   if (whitePages.includes(to.path)) {
+  //     next();
+  //   } else {
+  //     router.push({ path: "/401" });
+  //     next("/401");
+  //   }
+  // }
 
   // start progress bar
   // NProgress.start()
