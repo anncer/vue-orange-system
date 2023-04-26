@@ -1,6 +1,6 @@
 export default {
   // 是否有左侧菜单, true为dev和prd环境都显示， false为dev不显示，prd显示
-  isLeftbar: false,
+  isLeftbar: true,
   // 左侧菜单是否可以收起
   isLeftMini: true,
   // 是否显示logo

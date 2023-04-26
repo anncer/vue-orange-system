@@ -1,0 +1,30 @@
+@use '../config.scss';
+
+@function joinStr($pre, $after) {
+  @return $pre + $after;
+}
+
+// join var name
+// joinVarName(('button', 'text-color')) => '--baseui-button-text-color'
+@function joinVarName($list) {
+  $name: '--'+config.$namespace;
+
+  @each $item in $list {
+    @if $item  !='' {
+      $name: joinStr$name +'-'+$item;
+    }
+  }
+  @return $name;
+}
+
+// getCssVarName('button', 'text-color') => '--baseui-button-text-color'
+@function getCssVarName($args...) {
+  @return joinVarName($args);
+}
+
+// getCssVar('button', 'text-color') => var(--baseui-button-text-color)
+@function getCssVar($args...) {
+  @return var(#{joinVarName($args)});
+}
+
+
