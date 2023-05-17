@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use './variables.scss' as *;
+@use '../mixins/functuion.scss' as *;
+@use '../mixins/var.scss' as *;
+
+// 通用 由 scss 变量转化的 css变量
+
+// 通用变量
+:root {
+  @include set-css-var-value('theme-color', #fff);
+  @include set-component-css-var('menu', $menu);
+  @include set-component-css-var('content', $content);
+}
+
+// 主题颜色
+// for light
+:root {
+  color-scheme: light;
+}

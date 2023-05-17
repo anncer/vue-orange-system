@@ -1,4 +1,6 @@
-@use '../config.scss';
+@use './config.scss';
+
+// 工具方法
 
 @function joinStr($pre, $after) {
   @return $pre + $after;
@@ -7,11 +9,11 @@
 // join var name
 // joinVarName(('button', 'text-color')) => '--baseui-button-text-color'
 @function joinVarName($list) {
-  $name: '--'+config.$namespace;
+  $name: '--' + config.$namespace;
 
   @each $item in $list {
     @if $item  !='' {
-      $name: joinStr$name +'-'+$item;
+      $name: $name + '-' + $item;
     }
   }
   @return $name;

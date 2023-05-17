@@ -1,9 +1,13 @@
-// @import "./variables.scss";
-// @import "./mixin.scss";
-// @import "./transition.scss";
+@use "./common/transition.scss";
+
+@use "./mixins/mixins.scss";
+
+@use "./common/var.scss";
+
+// @use "./core/index.scss";
 
 // @import "./reset.scss";
 
-// @import "./layout.scss";
+// @use "./core/layout.scss";
 
 // @import "./pages.scss";

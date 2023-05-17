@@ -1,0 +1,160 @@
+/** 通用的scss变量 */
+@use 'sass:map';
+
+// 主题
+$theme: () !default;
+$theme: map.deep-merge(
+  (
+    'bg-color': #f2f2f2,
+    'color': #2f84ef,
+),
+$theme);
+
+$theme-bg-color: map.get($theme, 'bg-color');
+$theme-color: map.get($theme, 'color');
+
+// 颜色
+$colors: () !default;
+$colors: map.deep-merge(
+  (
+    'white': #ffffff,
+    'black': #000000,
+    'blue': #2f84ef,
+    'blueHover': #3a8df5,
+    'success': #5dca3c,
+    'success-light': #e1f8dc,
+    'warning': #fa9908,
+    'warning-light': #fcf2e1,
+    'danger': #fa6156,
+    'danger-light': #fcebe9,
+  ),
+  $colors
+);
+
+$color-white: map.get($colors, 'white');
+$color-black: map.get($colors, 'black');
+$color-blueHover: map.get($colors, 'blueHover');
+$color-success: map.get($colors, 'success');
+$color-success-light: map.get($colors, 'success-light');
+$color-warning: map.get($colors, 'warning');
+$color-warning-light: map.get($colors, 'warning-light');
+$color-danger: map.get($colors, 'danger');
+$color-danger-light: map.get($colors, 'danger-light');
+
+// $scrollbar-color: #d9d9d9;
+
+// #text
+$text-color: () !default;
+$text-color: map.merge(
+  (
+    '': #172b4c,
+    'primary': #303133,
+    'regular': #606266,
+    'secondary': #909399,
+    'placeholder': #a8abb2,
+    'disabled': #c0c4cc,
+  ),
+  $text-color
+);
+
+$text-color-base: map.get($text-color, '');
+$text-color-primary: map.get($text-color, 'primary');
+$text-color-regular: map.get($text-color, 'regular');
+$text-color-secondary: map.get($text-color, 'secondary');
+$text-color-placeholder: map.get($text-color, 'placeholder');
+$text-color-disabled: map.get($text-color, 'disabled');
+
+// 边框颜色
+$border-color: () !default;
+$border-color: map.merge(
+  (
+    '': #eceef3,
+    'light': #e4e7ed,
+    'lighter': #ebeef5,
+    'extra-light': #f2f6fc,
+    'dark': #d4d7de,
+    'darker': #cdd0d6,
+  ),
+  $border-color
+);
+
+$border-color-base: map.get($border-color, '');
+$border-color-light: map.get($border-color, 'light');
+$border-color-lighter: map.get($border-color, 'lighter');
+$border-color-extra-light: map.get($border-color, 'extra-light');
+$border-color-dark: map.get($border-color, 'dark');
+$border-color-darker: map.get($border-color, 'darker');
+
+$fill-color: () !default;
+$fill-color: map.merge(
+  (
+    '': #f0f2f5,
+    'light': #f5f7fa,
+    'lighter': #fafafa,
+    'extra-light': #fafcff,
+    'dark': #ebedf0,
+    'darker': #e6e8eb,
+    'blank': #ffffff,
+  ),
+  $fill-color
+);
+
+$fill-color-base: map.get($fill-color, '');
+$fill-color-light: map.get($fill-color, 'light');
+$fill-color-lighter: map.get($fill-color, 'lighter');
+$fill-color-extra-light: map.get($fill-color, 'extra-light');
+$fill-color-dark: map.get($fill-color, 'dark');
+$fill-color-darker: map.get($fill-color, 'darker');
+$fill-color-blank: map.get($fill-color, 'blank');
+
+$content: () !default;
+$content: map.deep-merge(
+  (
+    'min-width': 1000px,
+    'size': 12px,
+    'color': #172b4c,
+    'style':"PingFangSC-Medium, PingFang SC",
+    'padd': 20px
+  ),
+  $content
+);
+
+$content-min-width: map.get($content, 'min-width');
+$content-size: map.get($content, 'size');
+$content-color: map.get($content, 'color');
+$content-style: map.get($content, 'style');
+$content-padd: map.get($content, 'padd');
+
+// 左侧菜单
+$menu: () !default;
+$menu: map.deep-merge(
+  (
+    'width': 200px,
+    'mini-width': 60px,
+    'font-color': #3c8dbc,
+    "bg-color": #f2f2f2,
+    "hover-bg": #eaf3fd,
+    "active-bg": #e3effe,
+    "active-color": #0c5bde,
+  ),
+  $menu
+);
+
+$menu-width: map.get($menu, 'width');
+$menu-mini-width: map.get($menu, 'mini-width');
+$menu-font-color: map.get($menu, 'font-color');
+$menu-bg-color: map.get($menu, 'bg-color');
+$menu-hover-bg: map.get($menu, 'hover-bg');
+$menu-active-bg: map.get($menu, 'active-bg');
+$menu-active-color: map.get($menu, 'active-color');
+// 左侧菜单宽度px
+// $sideBarWidth: 200px;
+// $miniBarWidth: 60px;
+// // 左侧列表字体颜色
+// $leftColorLight: #3c8dbc;
+// // 左侧背景颜色
+// $leftBgLight: #f2f2f2;
+// // 左侧菜单hover背景颜色
+// $leftHoverBgLight: #eaf3fd;
+
+// $commonPadding: 20px;

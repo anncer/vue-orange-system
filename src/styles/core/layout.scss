@@ -1,0 +1,193 @@
+/** Layout 相关 */
+
+.menu-wrapper {
+  height: calc(100% - 18px);
+  width: 100%;
+  padding-top: 18px;
+  position: relative;
+}
+
+.menu-content {
+  margin-top: 20px;
+  border-right: none;
+}
+
+.menu-aside {
+  transition: width 0.28s;
+  width: $menu-width;
+  background: $menu-bg-color;
+  height: 100%;
+  position: fixed;
+  font-size: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  overflow: hidden;
+
+  .menu-opts {
+    color: #666666;
+    position: fixed;
+    // right: 0;
+    width: 16px;
+    height: 16px;
+    left: 200px;
+    top: 50%;
+    z-index: 1002;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .el-scrollbar {
+    height: 100%;
+  }
+
+  &.min-menu {
+    width: $menu-mini-width;
+    overflow: hidden;
+
+    .menu-item-text {
+      display: none;
+    }
+
+    .menu-opts {
+      left: 64px;
+    }
+  }
+}
+
+.wrap-container {
+  height: 100vh;
+  margin-left: $menu-width;
+  padding: $content-padd;
+  background: #f2f3f9;
+}
+
+.max-context {
+  margin-left: 0;
+}
+
+.app-main {
+  width: 100%;
+  // min-height: calc(100vh - #{$headerHeight});
+  height: 100%;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+// fix css style bug in open el-dialog
+.el-popup-parent--hidden {
+  .fixed-header {
+    padding-right: 15px;
+  }
+}
+
+.aside-logo {
+  width: calc(#{$menu-width} / 4);
+  margin-left: calc(#{$menu-width} / 3);
+  margin-top: 10px;
+
+  img {
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.el-menu .el-menu-item:focus .menu-item-text {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.menu-aside {
+  background: $menu-bg-color;
+}
+
+.menu-box,
+.el-menu-item,
+.el-sub-menu,
+.el-submenu__title,
+.el-sub-menu__title,
+.el-sub-menu__icon-arrow,
+.el-menu .el-menu-item:focus .menu-item-text {
+  color: $menu-font-color;
+  border-right: none;
+}
+
+.menu-box,
+.el-menu-item,
+.el-submenu .el-menu {
+  background: $menu-bg-color;
+}
+
+.el-submenu__title,
+.el-sub-menu__title,
+.el-sub-menu__icon-arrow,
+.el-menu-item:focus {
+  background: $menu-bg-color  !important;
+  color: $menu-font-color  !important;
+}
+
+.el-menu-item.is-active{
+  background: $menu-active-bg  !important;
+  color: $menu-active-color  !important;
+}
+
+.el-submenu__title,
+.el-sub-menu__title,
+.el-sub-menu__icon-arrow,
+.el-menu {
+  background: $menu-bg-color  !important;
+  color: $menu-font-color  !important;
+}
+
+.el-menu-item:hover,
+.el-sub-menu__title:hover {
+  background: $menu-hover-bg  !important;
+}
+
+// .dark {
+//   .menu-aside {
+//     background: $leftBgDark;
+//   }
+
+//   .menu-box,
+//   .el-menu-item,
+//   .el-sub-menu,
+//   .el-submenu__title,
+//   .el-sub-menu__title,
+//   .el-sub-menu__icon-arrow,
+//   .el-menu .el-menu-item:focus .menu-item-text {
+//     color: $leftColorDark;
+//     border-right: none;
+//   }
+
+//   .menu-box,
+//   .el-menu-item,
+//   .el-submenu .el-menu {
+//     background: $leftBgDark;
+//   }
+
+//   .el-menu-item.is-active,
+//   .el-submenu__title,
+//   .el-sub-menu__title,
+//   .el-sub-menu__icon-arrow,
+//   .el-menu-item:focus {
+//     background: $leftBgDark  !important;
+//     color: $leftColorDark  !important;
+//   }
+
+//   .el-submenu__title,
+//   .el-sub-menu__title,
+//   .el-sub-menu__icon-arrow,
+//   .el-menu {
+//     background: $leftBgDark  !important;
+//     color: $leftColorDark  !important;
+//   }
+
+//   .el-menu-item:hover,
+//   .el-sub-menu__title:hover {
+//     background: $leftHoverBgDark  !important;
+//   }
+// }

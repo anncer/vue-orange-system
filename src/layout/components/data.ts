@@ -1,12 +1,22 @@
 export default [
   {
-    name: "组织管理",
+    name: "系统管理",
     component: "organization",
     id: "organization",
     icon: "",
     hidden: false,
     isActive: true,
     children: [
+      {
+        name: "主页",
+        path: "/main",
+        component: "main",
+        id: "main",
+        icon: "",
+        hidden: false,
+        isActive: true,
+        children: []
+      },
       {
         name: "用户管理",
         path: "/personal",

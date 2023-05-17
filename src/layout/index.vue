@@ -10,7 +10,7 @@
 <script lang="ts" setup name="Layout">
 import AppMain from "@/layout/components/appMain.vue";
 import siderMenu from "./components/siderMenu.vue";
-import settings from "../../settings";
+import settings from "../settings";
 // import process from 'process'
 
 const { isLeftbar } = settings;

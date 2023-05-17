@@ -8,7 +8,7 @@
       <div class="login-box">
         <div class="login-title">
           <img class="login-avatar" :src="avatarSvg" />
-          <h2>xx平台</h2>
+          <h2>XX系统</h2>
         </div>
         <login-panel ref="panelRef" />
       </div>

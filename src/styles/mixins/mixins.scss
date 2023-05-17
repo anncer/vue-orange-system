@@ -1,3 +1,5 @@
+// 常用的样式mixins
+
 @mixin when($state) {
   @at-root {
     &.#{$state-prefix + $state} {

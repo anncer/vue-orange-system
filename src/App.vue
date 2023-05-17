@@ -1,13 +1,13 @@
 <template>
-  <div class="app" :class="theme || 'light'">
+  <div class="app-wrapper">
     <router-view></router-view>
   </div>
 </template>
 
 <script setup lang="ts" name="App">
-import settings from "../settings";
+// import settings from "./settings";
 
-const { theme } = settings;
+// const { theme } = settings;
 </script>
 
 <style scoped>
